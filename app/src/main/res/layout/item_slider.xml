@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                                   android:layout_height="275dp">
+
+    <ImageView
+            android:layout_width="0dp" android:scaleType="centerCrop"
+            android:layout_height="0dp" tools:srcCompat="@tools:sample/avatars[12]"
+            android:id="@+id/iv_slide_movie_thumbnail" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:contentDescription="@string/movie_thumbnails"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true" app:srcCompat="@drawable/ic_play_arrow"
+            android:id="@+id/fab_play"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" android:focusable="true"/>
+    <ImageView
+            android:layout_width="0dp"
+            android:layout_height="100dp" app:srcCompat="@drawable/bg_movie_title_gradient"
+            android:id="@+id/imageView2"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+    />
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content" android:textColor="@color/colorWhite"
+            android:layout_height="wrap_content" android:textSize="24dp"
+            android:id="@+id/tv_slide_movie_title" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp" app:layout_constraintHorizontal_bias="0.0"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
