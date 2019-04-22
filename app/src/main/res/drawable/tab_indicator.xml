@@ -2,5 +2,5 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/selected_tab_indicator"
           android:state_selected="true"/>
-    <item android:drawable="@drawable/unselected_tab_inicator"/>
+    <item android:drawable="@drawable/unselected_tab_indicator"/>
 </selector>
