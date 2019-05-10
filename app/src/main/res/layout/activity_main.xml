@@ -22,9 +22,18 @@
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
             android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars[9]"
-            android:id="@+id/rv_movie_list" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/tl_slide_indicator" app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/rv_movie_list"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="16dp" tools:listitem="@layout/item_movie"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/tv_header"/>
+    <TextView
+            android:text="blockbusters, Coming soon..."
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_header" android:layout_marginTop="8dp" android:textAllCaps="true"
+            app:layout_constraintTop_toBottomOf="@+id/tl_slide_indicator" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" android:textColor="@color/colorWhite"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

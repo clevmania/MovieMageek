@@ -3,9 +3,13 @@ package com.clevmania.moviemageek
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.clevmania.moviemageek.adapter.MovieAdapter
 import com.clevmania.moviemageek.adapter.SliderAdapter
+import com.clevmania.moviemageek.data.model.MovieModel
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     private val timerDelay: Long = 500//delay in milliseconds before task is to be executed
@@ -16,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setupSlidePager()
+        showMovies()
     }
 
     private fun setupSlidePager() {
@@ -44,5 +49,19 @@ class MainActivity : AppCompatActivity() {
                 handler.post(update)
             }
         }, timerDelay, duration)
+    }
+
+    private fun showMovies(){
+        val listOfMovies : ArrayList<MovieModel> = arrayListOf()
+        listOfMovies.add(MovieModel("Arrow",R.drawable.arrow))
+        listOfMovies.add(MovieModel("Game of thrones", R.drawable.got))
+        listOfMovies.add(MovieModel("Arrow",R.drawable.arrow))
+        listOfMovies.add(MovieModel("Game of thrones", R.drawable.got))
+        listOfMovies.add(MovieModel("Arrow",R.drawable.arrow))
+        listOfMovies.add(MovieModel("Game of thrones", R.drawable.got))
+
+        rv_movie_list.setHasFixedSize(true)
+        rv_movie_list.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        rv_movie_list.adapter = MovieAdapter(listOfMovies)
     }
 }

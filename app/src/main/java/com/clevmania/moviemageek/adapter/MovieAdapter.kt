@@ -21,7 +21,7 @@ class MovieAdapter(private val movieList : List<MovieModel>)
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movieList[position]
-        holder.movieThumbnail.setImageResource(movie.thumbnail.toInt())
+        holder.movieThumbnail.setImageResource(movie.thumbnail)
         holder.movieTitle.text = movie.title
     }
 
