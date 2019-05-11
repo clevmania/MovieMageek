@@ -1,8 +1,12 @@
 package com.clevmania.moviemageek
 
+import android.app.ActivityOptions
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.clevmania.moviemageek.adapter.MovieAdapter
 import com.clevmania.moviemageek.adapter.SliderAdapter
@@ -14,6 +18,7 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity() {
     private val timerDelay: Long = 500//delay in milliseconds before task is to be executed
     private val duration: Long = 3000
+    private lateinit var adapter : MovieAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         setupSlidePager()
         showMovies()
+        setUpClickListener()
     }
 
     private fun setupSlidePager() {
@@ -62,6 +68,23 @@ class MainActivity : AppCompatActivity() {
 
         rv_movie_list.setHasFixedSize(true)
         rv_movie_list.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
-        rv_movie_list.adapter = MovieAdapter(listOfMovies)
+        adapter = MovieAdapter(listOfMovies)
+        rv_movie_list.adapter = adapter
+    }
+
+    private fun setUpClickListener(){
+        adapter.fireClickListener(object : MovieItemClickListener{
+            override fun onMovieItemClicked(movie: MovieModel, imageThumbnail: ImageView) {
+                val detailedIntent = Intent(this@MainActivity, MovieDetailActivity::class.java)
+                detailedIntent.putExtra("extra_title", movie.title)
+                detailedIntent.putExtra("extra_url", movie.thumbnail)
+//                startActivity(detailedIntent)
+
+                val options = ActivityOptions.makeSceneTransitionAnimation(
+                    this@MainActivity,imageThumbnail,"animateView")
+                startActivity(detailedIntent,options.toBundle())
+            }
+
+        })
     }
 }
