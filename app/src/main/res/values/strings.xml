@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MovieMageek</string>
     <string name="movie_thumbnails">movie thumbnails</string>
+    <string name="lorel_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Suspendisse varius metus et tempor consequat. Duis in elit sed mi tempor auctor.
+        Vivamus venenatis malesuada vehicula.</string>
 </resources>
