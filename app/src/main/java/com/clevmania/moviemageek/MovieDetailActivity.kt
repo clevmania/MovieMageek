@@ -13,6 +13,7 @@ class MovieDetailActivity : AppCompatActivity() {
 
         GlideApp.with(this).load(intent.getIntExtra("extra_url",0))
             .into(iv_detailed_movie_thumbnail)
+        GlideApp.with(this).load(R.drawable.agent_of_shield_poster).into(iv_movie_cover)
         tv_movie_title.text = intent.getStringExtra("extra_title")
         supportActionBar?.title = intent.getStringExtra("extra_title")
         iv_movie_cover.animation = AnimationUtils.loadAnimation(this,R.anim.scale_anim)
